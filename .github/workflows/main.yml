@@ -6,7 +6,6 @@ jobs:
   deploy:
     name: Push to EC2 Instance
     runs-on: ubuntu-latest
-    
 
     steps:
       - name: Checkout the code
