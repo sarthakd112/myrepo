@@ -1,0 +1,17 @@
+name: API Gateway Request
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  api-gateway-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send API Gateway request
+        run: |
+          curl -i -X GET https://ysqighyxi1.execute-api.us-east-1.amazonaws.com/default/sss
+        env:
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ASIAQEDJZY5TSFCQN3P2
+          AWS_SECRET_ACCESS_KEY: lHmfXdR8LrNprbwT+Xx308sScThf+V/ebfQXG+l2
