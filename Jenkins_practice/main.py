@@ -76,7 +76,7 @@ class MNISTDataModule(L.LightningDataModule):
 class LightningMNISTClassifier(L.LightningModule):
     def __init__(self, learning_rate=0.01):
         """
-        Initializes the network
+        Initializes the network.....
         """
         super().__init__()
 
