@@ -1,24 +1,39 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Update and Install Packages') {
+        stage('Checkout') {
             steps {
-                bat 'choco install python3'
-                bat 'pip install mlflow torchvision>=0.15.1 torch>=2.0 lightning==2.0.0'
+                // Checkout your repository
+                // For example:
+                git branch: 'main', url: 'https://github.com/sarthakd112/myrepo'
             }
         }
         
         stage('Run Python Script') {
             steps {
-                bat 'python main.py'
+                // Run your Python script here
+                // Adjust the path to your main.py if necessary
+                bat '/main.py'
+            }
+        }
+
+        stage('Display Console Output') {
+            steps {
+                script {
+                    // Read and print the contents of the console log
+                    def consoleLog = currentBuild.rawBuild.getLog(1000)
+                    echo consoleLog
+                }
             }
         }
     }
-    
+
     post {
         always {
-            echo 'Pipeline completed.'
+            // Clean up or perform other tasks after the build
+            // For example:
+            // bat 'cleanup_command_here'
         }
     }
 }
