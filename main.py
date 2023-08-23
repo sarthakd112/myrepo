@@ -9,6 +9,10 @@ from torchmetrics.functional import accuracy
 from torchvision import datasets, transforms
 import mlflow.pytorch
 
+# main.py
+print("Script started...")
+
+
 class MNISTDataModule(L.LightningDataModule):
     def __init__(self, batch_size=64, num_workers=3):
         """
@@ -227,7 +231,9 @@ def cli_main():
         mlflow.pytorch.autolog()
     cli.trainer.fit(cli.model, datamodule=cli.datamodule)
     cli.trainer.test(ckpt_path="best", datamodule=cli.datamodule)
-
+# Your script logic
+print("Script completed.")
 
 if __name__ == "__main__":
     cli_main()
+    
